@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Qamar Planner by Mizan Planners</title>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
@@ -50,6 +49,7 @@
       min-width: 260px;
       box-shadow: 0 0 20px rgba(200,169,81,0.4);
       animation: pulse 2s infinite;
+      text-decoration: none;
     }
     .gold-btn:hover {
       transform: translateY(-2px);
@@ -110,11 +110,15 @@
       margin: 0 auto 2rem auto;
       opacity: 0.9;
     }
-    .mockup-img {
-      max-width: 280px;
-      margin: 20px auto 0;
-      display: block;
-      filter: drop-shadow(0 20px 25px rgba(0,0,0,0.5));
+    .mockup-preview {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .mockup-preview iframe {
+      border-radius: 16px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+      border: 1px solid #C8A951;
     }
 
     /* Sticky urgency bar */
@@ -306,11 +310,16 @@
         width: 100%;
         min-width: auto;
       }
+      .mockup-preview iframe {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Sticky urgency bar (hidden until timer start) -->
+  <!-- Sticky urgency bar -->
   <div class="urgency-bar" id="urgencyBar">
     ⏳ Launch offer: 30% off for the next <span id="countdown">03:00:00</span> – Use code <strong>QAMAR30</strong>
   </div>
@@ -321,11 +330,14 @@
     <div class="container hero-content">
       <h1>Organise Your Life by the Moon.<br>The Islamic Calendar Reimagined.</h1>
       <p>A digital planner that merges Gregorian dates, Hijri months, and daily moon phases into one breathtaking PDF. Works on tablet, phone, and desktop.</p>
-      <!-- Placeholder Payhip button: Replace with your real Payhip link after Mission 1 -->
-      <a href="#" class="gold-btn" id="buyBtn">Get Instant Access – $14.99</a>
+      <!-- REAL PAYHIP BUTTON -->
+      <a href="https://payhip.com/b/6gnuK" class="gold-btn">Get Instant Access – $14.99</a>
       <p class="small-print">Secure payment • Instant download • 60-Day Guarantee</p>
-      <!-- Simple mockup placeholder -->
-      <img src="https://placehold.co/280x360/1a2c44/F9F7F2?text=Qamar+Planner+Preview" alt="Planner Mockup" class="mockup-img">
+      <!-- PDF preview (embedded) -->
+      <div class="mockup-preview">
+        <!-- REPLACE 'YOUR-PDF-FILENAME.pdf' with your actual PDF filename after uploading to GitHub -->
+        <iframe src="YOUR-PDF-FILENAME.pdf" width="280" height="360" frameborder="0" title="Qamar Planner Preview"></iframe>
+      </div>
     </div>
   </section>
 
@@ -353,7 +365,7 @@
     </div>
   </section>
 
-  <!-- Gallery -->
+  <!-- Gallery (you can later replace these placeholders with real screenshots) -->
   <section class="gallery">
     <div class="container">
       <h2>Sneak Peek</h2>
@@ -409,7 +421,7 @@
     <div class="container">
       <h2>Your perfect month starts now.</h2>
       <br>
-      <a href="#" class="gold-btn" id="buyBtn2">Get Instant Access – $14.99</a>
+      <a href="https://payhip.com/b/6gnuK" class="gold-btn">Get Instant Access – $14.99</a>
     </div>
   </section>
 
@@ -422,8 +434,7 @@
     const bar = document.getElementById('urgencyBar');
     const countdownEl = document.getElementById('countdown');
     let timerInterval;
-    // Countdown duration: 3 hours in seconds
-    let remaining = 3 * 60 * 60;
+    let remaining = 3 * 60 * 60; // 3 hours
 
     function startCountdown() {
       bar.style.display = 'block';
@@ -437,7 +448,8 @@
         const hrs = Math.floor(remaining / 3600);
         const mins = Math.floor((remaining % 3600) / 60);
         const secs = remaining % 60;
-        countdownEl.textContent = `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        countdownEl.textContent = 
+          `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
         remaining--;
       }, 1000);
     }
@@ -452,14 +464,6 @@
         item.classList.toggle('active');
         const span = item.querySelector('.faq-question span');
         span.textContent = item.classList.contains('active') ? '−' : '+';
-      });
-    });
-
-    // Placeholder for Buy buttons (will be replaced with real Payhip link later)
-    document.querySelectorAll('#buyBtn, #buyBtn2').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('Payment system not connected yet. Complete Mission 1 and 2 to link your Payhip product!');
       });
     });
   </script>
