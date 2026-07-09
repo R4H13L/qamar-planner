@@ -113,14 +113,15 @@
       opacity: 0.9;
     }
     .mockup-preview {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
+      margin-top: 25px;
+      text-align: center;
     }
-    .mockup-preview iframe {
+    .cover-thumbnail {
       border-radius: 16px;
       box-shadow: 0 20px 30px rgba(0,0,0,0.5);
       border: 1px solid #C8A951;
+      max-width: 280px;
+      width: 100%;
     }
 
     /* Sticky urgency bar */
@@ -312,10 +313,8 @@
         width: 100%;
         min-width: auto;
       }
-      .mockup-preview iframe {
-        width: 100%;
-        height: auto;
-        min-height: 300px;
+      .cover-thumbnail {
+        max-width: 90%;
       }
     }
   </style>
@@ -332,13 +331,16 @@
     <div class="container hero-content">
       <h1>Organise Your Life by the Moon.<br>The Islamic Calendar Reimagined.</h1>
       <p>A digital planner that merges Gregorian dates, Hijri months, and daily moon phases into one breathtaking PDF. Works on tablet, phone, and desktop.</p>
-      <!-- REAL PAYHIP BUTTON -->
+      <!-- BUY BUTTON – $9.99 -->
       <a href="https://payhip.com/b/6gnuK" class="gold-btn">Get Instant Access – $9.99</a>
       <p class="small-print">Secure payment • Instant download • 60-Day Guarantee</p>
-      <!-- PDF preview (embedded) -->
+      <!-- PDF PREVIEW: Thumbnail + button -->
       <div class="mockup-preview">
-        <!-- CHANGE 'YOUR-PDF-FILENAME.pdf' TO YOUR ACTUAL UPLOADED PDF NAME AFTER UPLOADING TO GITHUB -->
-        <iframe src="Qamar Planner Your Digital Islamic Calendar.pdf" width="280" height="360" frameborder="0" title="Qamar Planner Preview"></iframe>
+        <img src="https://placehold.co/280x360/1a2c44/C8A951?text=Qamar+Planner+Cover" 
+             alt="Qamar Planner Cover" class="cover-thumbnail">
+        <br>
+        <a href="Qamar%20Planner%20Your%20Digital%20Islamic%20Calendar.pdf" target="_blank" class="gold-btn" style="margin-top: 15px;">📖 Preview the Planner</a>
+        <p class="small-print">Opens in a new tab – works on all devices</p>
       </div>
     </div>
   </section>
@@ -367,7 +369,7 @@
     </div>
   </section>
 
-  <!-- Gallery (replace placeholders with real screenshots later) -->
+  <!-- Gallery (placeholder screenshots) -->
   <section class="gallery">
     <div class="container">
       <h2>Sneak Peek</h2>
