@@ -116,12 +116,14 @@
       margin-top: 25px;
       text-align: center;
     }
-    .cover-thumbnail {
+    /* The iframe that shows the PDF */
+    #pdfViewer {
+      border: none;
       border-radius: 16px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.5);
-      border: 1px solid #C8A951;
-      max-width: 280px;
+      max-width: 600px;
       width: 100%;
+      height: 500px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.5);
     }
 
     /* Sticky urgency bar */
@@ -313,8 +315,8 @@
         width: 100%;
         min-width: auto;
       }
-      .cover-thumbnail {
-        max-width: 90%;
+      #pdfViewer {
+        height: 400px; /* slightly shorter on mobile */
       }
     }
   </style>
@@ -334,13 +336,9 @@
       <!-- BUY BUTTON – $9.99 -->
       <a href="https://payhip.com/b/6gnuK" class="gold-btn">Get Instant Access – $9.99</a>
       <p class="small-print">Secure payment • Instant download • 60-Day Guarantee</p>
-      <!-- PDF PREVIEW: Thumbnail + button -->
+      <!-- Inline PDF preview (no click needed) -->
       <div class="mockup-preview">
-        <img src="https://placehold.co/280x360/1a2c44/C8A951?text=Qamar+Planner+Cover" 
-             alt="Qamar Planner Cover" class="cover-thumbnail">
-        <br>
-        <a href="Qamar%20Planner%20Your%20Digital%20Islamic%20Calendar.pdf" target="_blank" class="gold-btn" style="margin-top: 15px;">📖 Preview the Planner</a>
-        <p class="small-print">Opens in a new tab – works on all devices</p>
+        <iframe id="pdfViewer" title="Qamar Planner Preview"></iframe>
       </div>
     </div>
   </section>
@@ -433,6 +431,7 @@
     Powered by Mizan Planners &nbsp;|&nbsp; <a href="#">Privacy Policy</a>
   </footer>
 
+  <!-- Countdown & FAQ scripts -->
   <script>
     // Urgency bar: show after 5 seconds, 3-hour countdown
     const bar = document.getElementById('urgencyBar');
@@ -470,6 +469,16 @@
         span.textContent = item.classList.contains('active') ? '−' : '+';
       });
     });
+  </script>
+
+  <!-- Load PDF inline via Google Docs Viewer (works on mobile) -->
+  <script>
+    (function() {
+      // Build full URL to your PDF (same folder as this page)
+      const pdfUrl = window.location.origin + '/Qamar%20Planner%20Your%20Digital%20Islamic%20Calendar.pdf';
+      const iframe = document.getElementById('pdfViewer');
+      iframe.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl) + '&embedded=true';
+    })();
   </script>
 </body>
 </html>
